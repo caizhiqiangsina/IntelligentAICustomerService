@@ -10,8 +10,6 @@
 // +----------------------------------------------------------------------
 
 // [ 应用入口文件 ]
-ini_set('display_errors','on');
-error_reporting(E_ERROR | E_WARNING | E_PARSE);
 // 定义应用目录
 define('APP_PATH', __DIR__ . '/../appsweb/');
 // 加载框架引导文件
