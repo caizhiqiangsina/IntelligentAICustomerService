@@ -5,7 +5,7 @@ use think\worker\Server;
 
 class Worker extends Server
 {
-    protected $socket = 'websocket://push.app:2346';
+    protected $socket = 'websocket://worker.nb27.cn:1827';
 
     /**
      * 收到信息
