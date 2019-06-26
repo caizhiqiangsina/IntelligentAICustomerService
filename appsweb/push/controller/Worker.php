@@ -17,6 +17,23 @@ class Worker extends Server
         $connection->send('我收到你的信息了');
     }
 
+// 当客户端发送消息过来时，转发给所有人
+    public function handle_message($connection, $data)
+    {
+        foreach($this->worker->connections as $conn)
+        {
+            $conn->send("user[{$connection->uid}] said: $data");
+        }
+    }
+
+// 当客户端断开时，广播给所有客户端
+    public function handle_close($connection)
+    {
+        foreach($this->worker->connections as $conn)
+        {
+            $conn->send("user[{$connection->uid}] logout");
+        }
+    }
     /**
      * 当连接建立时触发的回调函数
      * @param $connection
